@@ -19,6 +19,7 @@ DOSBox-X Mouse Relative Sensitivity must be set to `1.0`. This can be configured
 
 ## Demo
 
+To see a demo video, click on the following image:
 [![Demo video](https://img.youtube.com/vi/aqGhxOzTSGI/maxresdefault.jpg)](https://www.youtube.com/watch?v=aqGhxOzTSGI)
 
 ## How to use
