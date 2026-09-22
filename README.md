@@ -17,6 +17,10 @@ DOSBox-X Mouse Relative Sensitivity must be set to `1.0`. This can be configured
 - **Chimera:** open the `.chimeraProject` file in a text editor and set `"mouseSensitivity"` to `1`.
 - **BizHawk:** open the `.tasproj` file with 7-Zip or a similar archive tool and set `"MouseSensitivity"` to `1.0`.
 
+## Demo
+
+[![Demo video](https://img.youtube.com/vi/aqGhxOzTSGI/maxresdefault.jpg)](https://www.youtube.com/watch?v=aqGhxOzTSGI)
+
 ## How to use
 
 1. Download [`tastudio_dosbox_mouse_helper.lua`](tastudio_dosbox_mouse_helper.lua).
