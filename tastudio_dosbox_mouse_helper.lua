@@ -750,7 +750,7 @@ forms.setproperty(remember_box, "Width", 280)
 
 click_nudge_box = forms.checkbox(form, "Nudge mouse on click frame", 10, 190)
 
-forms.setproperty(click_nudge_box, "Checked", true)
+forms.setproperty(click_nudge_box, "Checked", false)
 forms.setproperty(click_nudge_box, "Width", 180)
 
 forms.label(form, "Nudge", 205, 190, 45, 20)
