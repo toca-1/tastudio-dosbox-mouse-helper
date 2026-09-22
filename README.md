@@ -2,7 +2,7 @@
 
 Lua script for creating precise DOSBox-X relative mouse movement and click inputs in TAStudio, compatible with [Chimera](https://github.com/ToolAssisted-run/chimera/) and [BizHawk](https://github.com/TASEmulators/BizHawk/).
 
-![TAStudio DOS mouse helper](ui.png)
+![TAStudio DOS mouse helper](docs/ui.png)
 
 ## Why this helper exists
 
