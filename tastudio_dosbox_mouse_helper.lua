@@ -255,25 +255,8 @@ local function write_mouse_frame(frame, x, y, speed_x, speed_y, click_button, pr
 end
 
 
-local function write_cleanup(frame, axis_x, axis_y)
-	local sx = 0
-	local sy = 0
-
-	local stage_x = X_NEUTRAL
-	local stage_y = Y_NEUTRAL
-
-	if axis_x ~= X_NEUTRAL then
-		sx = axis_x < X_NEUTRAL and 1 or -1
-		stage_x = X_NEUTRAL + sx
-	end
-
-	if axis_y ~= Y_NEUTRAL then
-		sy = axis_y < Y_NEUTRAL and 1 or -1
-		stage_y = Y_NEUTRAL + sy
-	end
-
-	write_mouse_frame(frame, stage_x, stage_y, sx, sy, nil, false)
-	write_mouse_frame(frame + 1, X_NEUTRAL, Y_NEUTRAL, 0, 0, nil, false)
+local function write_cleanup(frame)
+	write_mouse_frame(frame, X_NEUTRAL, Y_NEUTRAL, 1, 1, nil, false)
 end
 
 
@@ -592,11 +575,8 @@ local function apply_mouse_input()
 		if do_click then
 			local first_stationary =
 				(#path == 0) and move_frame or (arrival_frame + 1)
-
-			for frame = first_stationary, release_frame do
-				local pressed =
-					frame >= press_frame
-					and frame < release_frame
+			for frame = first_stationary, release_frame - 1 do
+				local pressed = frame >= press_frame
 
 				local x = final_axis_x
 				local y = final_axis_y
@@ -616,18 +596,20 @@ local function apply_mouse_input()
 					pressed
 				)
 			end
-		end
-
-		if final_axis_x ~= X_NEUTRAL or final_axis_y ~= Y_NEUTRAL then
-			local cleanup_frame
-
-			if do_click then
-				cleanup_frame = release_frame + 1
+			if final_axis_x ~= X_NEUTRAL or final_axis_y ~= Y_NEUTRAL then
+				write_cleanup(release_frame)
 			else
-				cleanup_frame = arrival_frame + 1
+				write_mouse_frame(
+					release_frame,
+					final_axis_x,
+					final_axis_y,
+					0,
+					0,
+					click_button,
+					false
+				)
 			end
-
-			write_cleanup(cleanup_frame, final_axis_x, final_axis_y)
+		elseif final_axis_x ~= X_NEUTRAL or final_axis_y ~= Y_NEUTRAL then			write_cleanup(arrival_frame + 1)
 		end
 
 		tastudio.applyinputchanges()
