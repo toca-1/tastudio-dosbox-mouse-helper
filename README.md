@@ -1,6 +1,6 @@
 # TAStudio DOSBox Mouse Helper
 
-Lua script for creating precise DOSBox-X relative mouse movement and click inputs in TAStudio for [Chimera](https://github.com/ToolAssisted-run/chimera/) and [BizHawk](https://github.com/TASEmulators/BizHawk/).
+Lua script for creating precise DOSBox-X relative mouse movement and click inputs in TAStudio for [BizHawk](https://github.com/TASEmulators/BizHawk/) and [Chimera](https://github.com/ToolAssisted-run/chimera/).
 
 ![TAStudio DOS mouse helper](docs/ui.png)
 
@@ -8,9 +8,7 @@ Lua script for creating precise DOSBox-X relative mouse movement and click input
 
 This version is compatible with:
 - BizHawk DOSBox-X
-- Chimera using DOSBox-X core Nightly 2026-09-21 (`0051717`) or earlier
-
-Starting with DOSBox-X core commit `1564379` (included in Nightly 2026-09-23 / `73df48cc`), Chimera's DOSBox-X core uses a different mouse-position model which makes this version of the helper incompatible with that newer input model.
+- Chimera using DOSBox-X core Nightly 2026-09-21 (`0051717`) or earlier; from Nightly 2026-10-03  (`ce6b682`) onwards, the DOSBox-X core ships with a native mouse driver that puts the guest mouse exactly where the host mouse is, thus rendering this script obsolete
 
 ## Why this helper exists
 
@@ -22,8 +20,8 @@ The helper takes a current guest cursor position and a desired target position, 
 
 DOSBox-X Mouse Relative Sensitivity must be set to `1.0`. This can be configured when creating the project, or changed afterward:
 
-- **Chimera:** open the `.chimeraProject` file in a text editor and set `"mouseSensitivity"` to `1`.
 - **BizHawk:** open the `.tasproj` file with 7-Zip or a similar archive tool and set `"MouseSensitivity"` to `1.0`.
+- **Chimera:** open the `.chimeraProject` file in a text editor and set `"mouseSensitivity"` to `1`.
 
 ## Demo
 
@@ -33,7 +31,7 @@ To see a demo video, click on the following image:
 ## How to use
 
 1. Download [`tastudio_dosbox_mouse_helper.lua`](tastudio_dosbox_mouse_helper.lua).
-2. Open Chimera or BizHawk, as well as TAStudio and the emulator's Lua console.
+2. Open BizHawk or Chimera, as well as TAStudio and the emulator's Lua console.
 3. Load the script.
 4. Enter the current cursor position and the desired target position.
 5. Configure the optional click settings.
